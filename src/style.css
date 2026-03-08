@@ -1,0 +1,275 @@
+:root {
+  --bg-dark: #07070a;
+  --bg-sidebar: #0f1015;
+  --bg-card: rgba(26, 28, 41, 0.7);
+  --text-primary: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --accent-color: #6366f1;
+  --accent-glow: rgba(99, 102, 241, 0.4);
+  --accent-hover: #818cf8;
+  --border-color: rgba(255, 255, 255, 0.05);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  height: 100vh;
+  overflow: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Outfit', sans-serif;
+}
+
+/* App Layout */
+#app {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 320px;
+  background-color: var(--bg-sidebar);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.4);
+  z-index: 10;
+}
+
+.sidebar header {
+  padding: 32px 24px 24px;
+  border-bottom: 1px solid var(--border-color);
+  background: linear-gradient(180deg, rgba(99,102,241,0.05) 0%, transparent 100%);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.logo-icon {
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(135deg, #818cf8, #4f46e5);
+  border-radius: 8px;
+  box-shadow: 0 0 16px var(--accent-glow);
+  position: relative;
+  animation: pulseLogo 4s infinite alternate ease-in-out;
+}
+
+.logo h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.5px;
+}
+
+.logo span {
+  color: var(--accent-color);
+  text-shadow: 0 0 12px var(--accent-glow);
+}
+
+.sidebar p {
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-left: 36px;
+}
+
+.molecule-list-container {
+  padding: 24px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.molecule-list-container h2 {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+#molecule-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.molecule-item {
+  padding: 14px 16px;
+  background-color: transparent;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--text-secondary);
+  border: 1px solid transparent;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.molecule-item:hover {
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+  transform: translateX(4px);
+}
+
+.molecule-item.active {
+  background-color: rgba(99, 102, 241, 0.1);
+  color: #fff;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  box-shadow: inset 0 0 20px rgba(99, 102, 241, 0.05);
+}
+
+/* Main Viewer */
+.viewer-container {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: #0a0a0f;
+  background-image: 
+    radial-gradient(circle at top right, rgba(99,102,241,0.08) 0%, transparent 40%),
+    radial-gradient(circle at bottom left, rgba(99,102,241,0.05) 0%, transparent 40%);
+}
+
+.top-bar {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  right: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 20;
+  pointer-events: none; /* Let clicks pass through except on children */
+}
+
+#current-molecule-name {
+  font-size: 28px;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(15, 16, 21, 0.6);
+  padding: 12px 24px;
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  pointer-events: auto;
+}
+
+.glow {
+  animation: textGlow 1s ease-out;
+}
+
+.viewer-controls {
+  display: flex;
+  gap: 12px;
+  pointer-events: auto;
+}
+
+.viewer-controls button {
+  background: rgba(15, 16, 21, 0.6);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.viewer-controls button:hover {
+  background: var(--bg-card);
+  border-color: rgba(99, 102, 241, 0.5);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+#viewer-3d {
+  flex: 1;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Empty State */
+#empty-state {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+
+.empty-icon {
+  width: 64px;
+  height: 64px;
+  border: 2px dashed rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  animation: spin 10s linear infinite;
+}
+
+#empty-state p {
+  color: var(--text-secondary);
+  font-size: 15px;
+}
+
+/* Animations */
+@keyframes pulseLogo {
+  0% { box-shadow: 0 0 12px var(--accent-glow); }
+  100% { box-shadow: 0 0 24px rgba(99, 102, 241, 0.8); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes textGlow {
+  0% { text-shadow: 0 0 0 transparent; color: #fff; }
+  50% { text-shadow: 0 0 24px var(--accent-color); color: var(--accent-hover); }
+  100% { text-shadow: 0 0 0 transparent; color: #fff; }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.1);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,255,255,0.2);
+}
