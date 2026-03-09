@@ -36,6 +36,11 @@ const moleculeMeta = {
     formula: 'C6H8O7',
     smiles: 'C(C(=O)O)C(CC(=O)O)(C(=O)O)O',
   },
+  'Ортоугольная кислота': {
+    cid: 9547954,
+    formula: 'CH4O4',
+    smiles: 'C(O)(O)(O)O',
+  },
   '4,10-дициано-2,6,8,12-тетранитро-2,4,6,8,10,12-гексаазоизовюрцитан': {
     formula: 'C8H6N12O8',
     smiles: '[H]C12N(C#N)C([H])3N([N+](=O)[O-])C([H])4N([N+](=O)[O-])C([H])3N(C#N)C([H])1N([N+](=O)[O-])C([H])4N([N+](=O)[O-])2',
