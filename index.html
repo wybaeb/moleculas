@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>3D Molecule Viewer</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <!-- 3Dmol.js Library -->
   <script src="https://3Dmol.org/build/3Dmol-min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +19,35 @@
     <aside class="sidebar">
       <header>
         <div class="logo">
-          <div class="logo-icon"></div>
+          <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+            <defs>
+              <radialGradient id="logo-o" cx="38%" cy="30%" r="68%">
+                <stop offset="0%" stop-color="#ffcdd2"/>
+                <stop offset="40%" stop-color="#e53935"/>
+                <stop offset="100%" stop-color="#7f0000"/>
+              </radialGradient>
+              <radialGradient id="logo-h" cx="38%" cy="30%" r="68%">
+                <stop offset="0%" stop-color="#ffffff"/>
+                <stop offset="40%" stop-color="#90caf9"/>
+                <stop offset="100%" stop-color="#0d47a1"/>
+              </radialGradient>
+              <filter id="logo-shadow" x="-30%" y="-30%" width="160%" height="160%">
+                <feDropShadow dx="0.3" dy="0.8" stdDeviation="0.9" flood-color="rgba(0,0,0,0.55)"/>
+              </filter>
+            </defs>
+            <!-- Bonds -->
+            <line x1="12" y1="16.5" x2="4.8" y2="8.2" stroke="#9fa8da" stroke-width="1.7" stroke-linecap="round" opacity="0.75"/>
+            <line x1="12" y1="16.5" x2="19.2" y2="8.2" stroke="#9fa8da" stroke-width="1.7" stroke-linecap="round" opacity="0.75"/>
+            <!-- Oxygen -->
+            <circle cx="12" cy="17" r="5.4" fill="url(#logo-o)" filter="url(#logo-shadow)"/>
+            <!-- Hydrogens -->
+            <circle cx="4.6" cy="8" r="3.4" fill="url(#logo-h)" filter="url(#logo-shadow)"/>
+            <circle cx="19.4" cy="8" r="3.4" fill="url(#logo-h)" filter="url(#logo-shadow)"/>
+            <!-- Specular highlights -->
+            <ellipse cx="10.3" cy="15.2" rx="1.9" ry="1.3" fill="rgba(255,255,255,0.45)" transform="rotate(-28 10.3 15.2)"/>
+            <ellipse cx="3.4" cy="6.8" rx="1.2" ry="0.85" fill="rgba(255,255,255,0.5)" transform="rotate(-28 3.4 6.8)"/>
+            <ellipse cx="18.2" cy="6.8" rx="1.2" ry="0.85" fill="rgba(255,255,255,0.5)" transform="rotate(-28 18.2 6.8)"/>
+          </svg>
           <h1>Molecula<span>X</span></h1>
         </div>
         <p>3D Structure Viewer</p>
