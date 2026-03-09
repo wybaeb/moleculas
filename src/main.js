@@ -32,6 +32,7 @@ const moleculeMeta = {
   },
   '4,10-дициано-2,6,8,12-тетранитро-2,4,6,8,10,12-гексаазоизовюрцитан': {
     formula: 'C8H6N12O8',
+    smiles: '[H]C12N(C#N)C([H])3N([N+](=O)[O-])C([H])4N([N+](=O)[O-])C([H])3N(C#N)C([H])1N([N+](=O)[O-])C([H])4N([N+](=O)[O-])2',
   },
 };
 
@@ -73,8 +74,14 @@ const updateInfoPanel = (name, cid) => {
   if (useCid) {
     imgEl.src = `https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/${useCid}/PNG?record_type=2d&image_size=300x200`;
     imgEl.alt = `Structural formula of ${name}`;
+    imgEl.style.display = '';
+  } else if (meta && meta.smiles) {
+    imgEl.src = `https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/smiles/${encodeURIComponent(meta.smiles)}/PNG?record_type=2d&image_size=300x200`;
+    imgEl.alt = `Structural formula of ${name}`;
+    imgEl.style.display = '';
   } else {
     imgEl.src = '';
+    imgEl.style.display = 'none';
   }
 
   panel.classList.remove('hidden');
