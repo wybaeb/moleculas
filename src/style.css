@@ -347,6 +347,7 @@ h4 {
 }
 
 .info-formula,
+.info-structural-formula,
 .info-structure {
   background: rgba(10, 10, 20, 0.75);
   backdrop-filter: blur(14px);
@@ -385,6 +386,14 @@ h4 {
 
 .info-structure {
   align-items: flex-start;
+}
+
+.structural-formula-value {
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.7);
+  word-break: break-all;
+  line-height: 1.5;
 }
 
 #info-structure-img {

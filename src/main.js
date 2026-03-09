@@ -7,28 +7,34 @@ const moleculePaths = import.meta.glob('./molecules/*.sdf', { query: '?url', imp
 // formula uses plain text with ^ for subscript markers replaced in renderFormula()
 const moleculeMeta = {
   'Hexanitrohexaazaisowurtzitane': {
-    cid: 16682231,
+    cid: 9889323,
     formula: 'C6H6N12O12',
+    smiles: 'C12C3N(C4C(N3[N+](=O)[O-])N(C(N1[N+](=O)[O-])C(N2[N+](=O)[O-])N4[N+](=O)[O-])[N+](=O)[O-])[N+](=O)[O-]',
   },
   'Pentaerythritol tetranitrate': {
     cid: 6518,
     formula: 'C5H8N4O12',
+    smiles: 'C(C(CO[N+](=O)[O-])(CO[N+](=O)[O-])CO[N+](=O)[O-])O[N+](=O)[O-]',
   },
   'Трихлоизоционуровая кислота': {
     cid: 6909,
     formula: 'C3Cl3N3O3',
+    smiles: 'C1(=O)N(C(=O)N(C(=O)N1Cl)Cl)Cl',
   },
   'Абиетиновая кислота': {
     cid: 10569,
     formula: 'C20H30O2',
+    smiles: 'CC(C)C1=CC2=CC[C@@H]3[C@@]([C@H]2CC1)(CCC[C@@]3(C)C(=O)O)C',
   },
   'Абсцизовая кислота': {
     cid: 5280896,
     formula: 'C15H20O4',
+    smiles: 'CC1=CC(=O)CC([C@]1(/C=C/C(=C\\C(=O)O)/C)O)(C)C',
   },
   'Лимонная кислота': {
     cid: 311,
     formula: 'C6H8O7',
+    smiles: 'C(C(=O)O)C(CC(=O)O)(C(=O)O)O',
   },
   '4,10-дициано-2,6,8,12-тетранитро-2,4,6,8,10,12-гексаазоизовюрцитан': {
     formula: 'C8H6N12O8',
@@ -59,6 +65,8 @@ const updateInfoPanel = (name, cid) => {
   const panel = document.getElementById('molecule-info');
   const formulaEl = document.getElementById('info-formula-value');
   const imgEl = document.getElementById('info-structure-img');
+  const structuralBlock = document.getElementById('info-structural-formula-block');
+  const structuralEl = document.getElementById('info-structural-formula-value');
 
   const meta = moleculeMeta[name];
 
@@ -69,15 +77,24 @@ const updateInfoPanel = (name, cid) => {
     formulaEl.textContent = '—';
   }
 
-  // Structural 2D image from PubChem
+  // Structural formula (SMILES)
+  if (meta && meta.smiles) {
+    structuralEl.textContent = meta.smiles;
+    structuralBlock.classList.remove('hidden');
+  } else {
+    structuralEl.textContent = '';
+    structuralBlock.classList.add('hidden');
+  }
+
+  // Structural 2D scheme from PubChem
   const useCid = meta ? meta.cid : cid;
   if (useCid) {
     imgEl.src = `https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/${useCid}/PNG?record_type=2d&image_size=300x200`;
-    imgEl.alt = `Structural formula of ${name}`;
+    imgEl.alt = `Структурная схема ${name}`;
     imgEl.style.display = '';
   } else if (meta && meta.smiles) {
     imgEl.src = `https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/smiles/${encodeURIComponent(meta.smiles)}/PNG?record_type=2d&image_size=300x200`;
-    imgEl.alt = `Structural formula of ${name}`;
+    imgEl.alt = `Структурная схема ${name}`;
     imgEl.style.display = '';
   } else {
     imgEl.src = '';
