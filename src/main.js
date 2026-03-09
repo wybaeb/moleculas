@@ -41,6 +41,15 @@ const moleculeMeta = {
     formula: 'CH4O4',
     smiles: 'C(O)(O)(O)O',
   },
+  'Дициклопентадиенил железа': {
+    cid: 10219726,
+    formula: 'C10H10Fe',
+    smiles: 'C1=C[CH]C=C1.C1=C[CH]C=C1.[Fe]',
+  },
+  'Пентасилациклодиенит': {
+    formula: 'Si5H5',
+    smiles: '[SiH-]1[SiH]=[SiH][SiH]=[SiH]1',
+  },
   '4,10-дициано-2,6,8,12-тетранитро-2,4,6,8,10,12-гексаазоизовюрцитан': {
     formula: 'C8H6N12O8',
     smiles: '[H]C12N(C#N)C([H])3N([N+](=O)[O-])C([H])4N([N+](=O)[O-])C([H])3N(C#N)C([H])1N([N+](=O)[O-])C([H])4N([N+](=O)[O-])2',
