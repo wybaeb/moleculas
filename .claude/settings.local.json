@@ -15,7 +15,16 @@
       "WebFetch(domain:www.ebi.ac.uk)",
       "WebFetch(domain:www.chemspider.com)",
       "WebFetch(domain:commonchemistry.cas.org)",
-      "WebFetch(domain:cactus.nci.nih.gov)"
+      "WebFetch(domain:cactus.nci.nih.gov)",
+      "WebFetch(domain:www.science.org)",
+      "WebFetch(domain:pubmed.ncbi.nlm.nih.gov)",
+      "WebFetch(domain:scitechdaily.com)",
+      "WebFetch(domain:cen.acs.org)",
+      "WebFetch(domain:phys.org)",
+      "WebFetch(domain:eutils.ncbi.nlm.nih.gov)",
+      "WebFetch(domain:www.tohoku.ac.jp)",
+      "WebFetch(domain:www.eurekalert.org)",
+      "WebFetch(domain:www.sciencedaily.com)"
     ]
   }
 }

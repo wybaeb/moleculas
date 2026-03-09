@@ -13,6 +13,7 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+public
 *.local
 
 # Editor directories and files
@@ -55,3 +56,4 @@ MANIFEST
 .env
 .env.*
 !.env.example
+
