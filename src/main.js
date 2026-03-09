@@ -11,11 +11,11 @@ const moleculeMeta = {
     formula: 'C6H6N12O12',
   },
   'Pentaerythritol tetranitrate': {
-    cid: 9551,
+    cid: 6518,
     formula: 'C5H8N4O12',
   },
   'Трихлоизоционуровая кислота': {
-    cid: 7367,
+    cid: 6909,
     formula: 'C3Cl3N3O3',
   },
   'Абиетиновая кислота': {
@@ -29,6 +29,9 @@ const moleculeMeta = {
   'Лимонная кислота': {
     cid: 311,
     formula: 'C6H8O7',
+  },
+  '4,10-дициано-2,6,8,12-тетранитро-2,4,6,8,10,12-гексаазоизовюрцитан': {
+    formula: 'C8H6N12O8',
   },
 };
 

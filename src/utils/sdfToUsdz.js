@@ -158,6 +158,7 @@ function buildUSDA(parsed) {
     {
         double radius = 0.080000
         double height = ${p(len)}
+        token axis = "Y"
         rel material:binding = </Root/Materials/BondMat>
         double3 xformOp:translate = (${p(mx)}, ${p(my)}, ${p(mz)})
         quatf xformOp:orient = (${p(q.w)}, ${p(q.x)}, ${p(q.y)}, ${p(q.z)})

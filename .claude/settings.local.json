@@ -3,7 +3,19 @@
     "allow": [
       "Bash(npm run:*)",
       "Bash(node:*)",
-      "Bash(python3:*)"
+      "Bash(python3:*)",
+      "WebFetch(domain:pubchem.ncbi.nlm.nih.gov)",
+      "WebSearch",
+      "WebFetch(domain:pmc.ncbi.nlm.nih.gov)",
+      "WebFetch(domain:www.sciencedirect.com)",
+      "WebFetch(domain:patents.google.com)",
+      "WebFetch(domain:www.researchgate.net)",
+      "WebFetch(domain:pubs.rsc.org)",
+      "WebFetch(domain:www.ccdc.cam.ac.uk)",
+      "WebFetch(domain:www.ebi.ac.uk)",
+      "WebFetch(domain:www.chemspider.com)",
+      "WebFetch(domain:commonchemistry.cas.org)",
+      "WebFetch(domain:cactus.nci.nih.gov)"
     ]
   }
 }
