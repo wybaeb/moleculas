@@ -66,9 +66,8 @@ h4 {
   width: 28px;
   height: 28px;
   flex-shrink: 0;
-  filter: drop-shadow(0 0 6px rgba(99, 102, 241, 0.5));
-  animation: pulseLogo 4s infinite alternate ease-in-out;
   overflow: visible;
+  animation: pulseLogo 4s infinite alternate ease-in-out;
 }
 
 .logo h1 {
@@ -272,11 +271,11 @@ h4 {
 /* Animations */
 @keyframes pulseLogo {
   0% {
-    box-shadow: 0 0 12px var(--accent-glow);
+    filter: drop-shadow(0 0 4px rgba(99, 102, 241, 0.45));
   }
 
   100% {
-    box-shadow: 0 0 24px rgba(99, 102, 241, 0.8);
+    filter: drop-shadow(0 0 10px rgba(129, 140, 248, 0.85));
   }
 }
 
