@@ -87,7 +87,7 @@ The live URL will be:
 https://<your-namespace>.gitlab.io/moleculas/
 ```
 
-No environment variables or secrets are required — the app uses only public, unauthenticated APIs (PubChem REST API) and a public CDN (3Dmol.js)..
+No environment variables or secrets are required — the app uses only public, unauthenticated APIs (PubChem REST API) and a public CDN (3Dmol.js).
 
 ## Technology stack
 
