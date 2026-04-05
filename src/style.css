@@ -105,7 +105,14 @@ h4 {
   letter-spacing: 1px;
 }
 
-#molecule-list {
+.section-divider {
+  margin-top: 24px !important;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+}
+
+#molecule-list,
+#protein-list {
   list-style: none;
   display: flex;
   flex-direction: column;
@@ -344,7 +351,12 @@ h4 {
   pointer-events: none;
 }
 
+.molecule-info .hidden {
+  display: none;
+}
+
 .info-formula,
+.info-condensed,
 .info-structural-formula,
 .info-structure {
   background: rgba(10, 10, 20, 0.75);

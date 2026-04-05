@@ -53,8 +53,12 @@
         <p>3D Structure Viewer</p>
       </header>
       <div class="molecule-list-container">
-        <h2>Available Molecules</h2>
+        <h2>Molecules</h2>
         <ul id="molecule-list">
+          <!-- Dynamically populated -->
+        </ul>
+        <h2 class="section-divider">Proteins</h2>
+        <ul id="protein-list">
           <!-- Dynamically populated -->
         </ul>
       </div>
@@ -102,6 +106,10 @@
         <div class="info-formula">
           <span class="info-label">Брутто-формула</span>
           <span id="info-formula-value" class="formula-value"></span>
+        </div>
+        <div class="info-condensed hidden" id="info-condensed-block">
+          <span class="info-label">Сокращённая структурная формула</span>
+          <span id="info-condensed-value" class="formula-value" style="font-size:16px"></span>
         </div>
         <div class="info-structural-formula hidden" id="info-structural-formula-block">
           <span class="info-label">Структурная формула</span>
