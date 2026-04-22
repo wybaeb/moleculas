@@ -61,6 +61,10 @@
         <ul id="protein-list">
           <!-- Dynamically populated -->
         </ul>
+        <h2 class="section-divider">Reactions</h2>
+        <ul id="reaction-list">
+          <!-- Dynamically populated -->
+        </ul>
       </div>
     </aside>
     <main class="viewer-container">
@@ -100,6 +104,15 @@
           <div class="empty-icon"></div>
           <p>Select a molecule from the sidebar to view its 3D structure.</p>
         </div>
+      </div>
+      <!-- Reaction Animation Controls -->
+      <div id="reaction-controls" class="reaction-controls hidden">
+        <button id="reaction-play-pause" title="Play / Pause">
+          <svg id="icon-play" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+          <svg id="icon-pause" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="display:none"><rect x="5" y="3" width="4" height="18"/><rect x="15" y="3" width="4" height="18"/></svg>
+        </button>
+        <input type="range" id="reaction-timeline" min="0" max="1000" value="0" step="1">
+        <span id="reaction-equation"></span>
       </div>
       <!-- Molecule Info Panel -->
       <div id="molecule-info" class="molecule-info hidden">

@@ -122,11 +122,110 @@ const moleculeMeta = {
     smiles: 'F.F[Sb](F)(F)(F)F',
     structureImg: './structures/Гексафторсурьмяная_кислота.png',
   },
+  '2,3,7,8-Тетрахлордибензодиоксин': {
+    cid: 15625,
+    formula: 'C12H4Cl4O2',
+    smiles: 'C1=C2C(=CC(=C1Cl)Cl)OC3=CC(=C(C=C3O2)Cl)Cl',
+  },
+  '2,3,7,8-Тетрахлордибензофуран': {
+    cid: 39929,
+    formula: 'C12H4Cl4O',
+    smiles: 'C1=C2C3=CC(=C(C=C3OC2=CC(=C1Cl)Cl)Cl)Cl',
+  },
+  'Лауретсульфат натрия': {
+    cid: 23665884,
+    formula: 'C14H29NaO5S',
+    condensed: 'CH3(CH2)11(OCH2CH2)OSO3Na',
+    smiles: 'CCCCCCCCCCCCOCCOS(=O)(=O)[O-].[Na+]',
+  },
   'Сухая вода (Novec 1230)': {
     cid: 2782408,
     formula: 'C6F12O',
     condensed: 'CF3CF2C(O)CF(CF3)2',
     smiles: 'C(=O)(C(C(F)(F)F)(C(F)(F)F)F)C(C(F)(F)F)(F)F',
+  },
+  'Сульфоксилат натрия': {
+    cid: 23689980,
+    formula: 'CH3NaO3S',
+    condensed: 'HOCH2SO2Na',
+    smiles: 'C(O)S(=O)[O-].[Na+]',
+  },
+  'Синглетный кислород': {
+    cid: 977,
+    formula: 'O2',
+    condensed: 'O=O',
+    smiles: 'O=O',
+  },
+  'Гидроксид натрия': {
+    cid: 14798,
+    formula: 'NaOH',
+    condensed: 'NaOH',
+    smiles: '[Na]O',
+  },
+  'Соляная кислота': {
+    cid: 313,
+    formula: 'HCl',
+    condensed: 'HCl',
+    smiles: 'Cl',
+  },
+  'Хлорид натрия': {
+    cid: 5234,
+    formula: 'NaCl',
+    condensed: 'NaCl',
+    smiles: '[Na]Cl',
+  },
+  'Вода': {
+    cid: 962,
+    formula: 'H2O',
+    condensed: 'H2O',
+    smiles: 'O',
+  },
+  'Мочевина': {
+    cid: 1176,
+    formula: 'CH4N2O',
+    condensed: '(NH2)2CO',
+    smiles: 'NC(=O)N',
+  },
+  'Углекислый газ': {
+    cid: 280,
+    formula: 'CO2',
+    condensed: 'CO2',
+    smiles: 'O=C=O',
+  },
+  'Аммиак': {
+    cid: 222,
+    formula: 'NH3',
+    condensed: 'NH3',
+    smiles: 'N',
+  },
+  'Формальдегид': {
+    cid: 712,
+    formula: 'CH2O',
+    condensed: 'HCHO',
+    smiles: 'O=C',
+  },
+  'Гидросульфат натрия': {
+    cid: 516919,
+    formula: 'NaHSO4',
+    condensed: 'NaHSO4',
+    smiles: 'OS(=O)(=O)[O-].[Na+]',
+  },
+  'Серная кислота': {
+    cid: 1118,
+    formula: 'H2SO4',
+    condensed: 'H2SO4',
+    smiles: 'OS(=O)(=O)O',
+  },
+  '2,2,6,6-Тетраметилпиперидид лития': {
+    cid: 11051814,
+    formula: 'C9H18LiN',
+    condensed: 'LiN[C(CH3)2(CH2)]2CH2',
+    smiles: '[Li+].CC1(CCCC([N-]1)(C)C)C',
+  },
+  'Каппа-каррагинан': {
+    cid: 11966249,
+    formula: 'C24H36O25S2',
+    smiles: 'C1[C@@H]2[C@@H]([C@H](O1)[C@H]([C@H](O2)O)O)O[C@H]3[C@@H]([C@H]([C@H]([C@H](O3)CO)OS(=O)(=O)[O-])O[C@@H]4[C@@H]([C@@H]5[C@H]([C@H](O4)CO5)O[C@H]6[C@@H]([C@H]([C@H]([C@H](O6)CO)OS(=O)(=O)[O-])O)O)O)O',
   },
 };
 
@@ -161,6 +260,25 @@ const proteinMeta = {
     description: 'Антибактериальный фермент, разрушающий клеточные стенки бактерий',
     organism: 'Gallus gallus',
     formula: null,
+  },
+};
+
+// Reaction metadata
+const reactionMeta = {
+  'Окисление сульфоксилата натрия': {
+    reactants: ['Синглетный кислород', 'Сульфоксилат натрия'],
+    products: ['Формальдегид', 'Гидросульфат натрия'],
+    equation: 'HOCH₂SO₂Na + O₂ → HCHO + NaHSO₄',
+  },
+  'Нейтрализация (NaOH + HCl)': {
+    reactants: ['Гидроксид натрия', 'Соляная кислота'],
+    products: ['Хлорид натрия', 'Вода'],
+    equation: 'NaOH + HCl → NaCl + H₂O',
+  },
+  'Гидролиз мочевины': {
+    reactants: ['Мочевина', 'Вода'],
+    products: ['Углекислый газ', 'Аммиак', 'Аммиак'],
+    equation: 'CO(NH₂)₂ + H₂O → CO₂ + 2NH₃',
   },
 };
 
@@ -241,9 +359,18 @@ const updateInfoPanel = (name, cid) => {
   panel.classList.remove('hidden');
 };
 
+const stopReactionAnimation = () => {
+  if (reactionAnimState && reactionAnimState.animId) {
+    cancelAnimationFrame(reactionAnimState.animId);
+  }
+  reactionAnimState = null;
+  document.getElementById('reaction-controls').classList.add('hidden');
+};
+
 const loadMolecule = async (name, url) => {
   if (!viewer) return;
 
+  stopReactionAnimation();
   currentViewMode = 'molecule';
   currentStyle = { stick: {} };
   document.getElementById('empty-state').style.display = 'none';
@@ -312,6 +439,7 @@ const updateProteinInfoPanel = (name, meta) => {
 const loadProtein = async (name, meta) => {
   if (!viewer) return;
 
+  stopReactionAnimation();
   currentViewMode = 'protein';
   document.getElementById('empty-state').style.display = 'none';
   document.getElementById('current-molecule-name').textContent = name;
@@ -340,6 +468,179 @@ const loadProtein = async (name, meta) => {
   }, 1000);
 };
 
+// ── Reaction Animation System ──
+
+// Map display name → SDF URL (built during setupMenu)
+let moleculeUrlMap = {};
+
+// Animation state
+let reactionAnimState = null; // { reactantSdfs, productSdfs, playing, progress, animId, speed }
+
+const easeInOutCubic = (t) => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+const computeCenterOfMass = (sdfText) => {
+  const lines = sdfText.split('\n');
+  const numAtoms = parseInt(lines[3].substring(0, 3));
+  let cx = 0, cy = 0, cz = 0;
+  for (let i = 4; i < 4 + numAtoms; i++) {
+    cx += parseFloat(lines[i].substring(0, 10));
+    cy += parseFloat(lines[i].substring(10, 20));
+    cz += parseFloat(lines[i].substring(20, 30));
+  }
+  return { x: cx / numAtoms, y: cy / numAtoms, z: cz / numAtoms };
+};
+
+const shiftSdf = (sdfText, dx, dy, dz) => {
+  const lines = sdfText.split('\n');
+  const numAtoms = parseInt(lines[3].substring(0, 3));
+  for (let i = 4; i < 4 + numAtoms; i++) {
+    const x = parseFloat(lines[i].substring(0, 10)) + dx;
+    const y = parseFloat(lines[i].substring(10, 20)) + dy;
+    const z = parseFloat(lines[i].substring(20, 30)) + dz;
+    lines[i] = x.toFixed(4).padStart(10) + y.toFixed(4).padStart(10) + z.toFixed(4).padStart(10) + lines[i].substring(30);
+  }
+  return lines.join('\n');
+};
+
+const centerSdf = (sdfText) => {
+  const com = computeCenterOfMass(sdfText);
+  return shiftSdf(sdfText, -com.x, -com.y, -com.z);
+};
+
+const renderReactionFrame = (progress) => {
+  if (!viewer || !reactionAnimState) return;
+
+  const { reactantSdfs, productSdfs } = reactionAnimState;
+  const spread = 12;
+
+  viewer.clear();
+
+  if (progress <= 0.5) {
+    // Reactants phase: approach each other (spread → 0)
+    const t = easeInOutCubic(progress / 0.5);
+    const distance = spread * (1 - t);
+    reactantSdfs.forEach((sdf, i) => {
+      const n = reactantSdfs.length;
+      const xOffset = (i - (n - 1) / 2) * distance * 2;
+      const shifted = shiftSdf(sdf, xOffset, 0, 0);
+      viewer.addModel(shifted, 'sdf');
+    });
+  } else {
+    // Products phase: separate from center (0 → spread)
+    const t = easeInOutCubic((progress - 0.5) / 0.5);
+    const distance = spread * t;
+    productSdfs.forEach((sdf, i) => {
+      const n = productSdfs.length;
+      const xOffset = (i - (n - 1) / 2) * distance * 2;
+      const shifted = shiftSdf(sdf, xOffset, 0, 0);
+      viewer.addModel(shifted, 'sdf');
+    });
+  }
+
+  viewer.setStyle({}, { stick: {} });
+  viewer.render();
+};
+
+const animationLoop = () => {
+  if (!reactionAnimState || !reactionAnimState.playing) return;
+
+  reactionAnimState.progress += reactionAnimState.speed;
+  if (reactionAnimState.progress > 1) {
+    reactionAnimState.progress = 0;
+  }
+
+  renderReactionFrame(reactionAnimState.progress);
+
+  // Update timeline slider
+  const slider = document.getElementById('reaction-timeline');
+  slider.value = Math.round(reactionAnimState.progress * 1000);
+
+  reactionAnimState.animId = requestAnimationFrame(animationLoop);
+};
+
+const toggleReactionPlayPause = () => {
+  if (!reactionAnimState) return;
+  reactionAnimState.playing = !reactionAnimState.playing;
+
+  const iconPlay = document.getElementById('icon-play');
+  const iconPause = document.getElementById('icon-pause');
+
+  if (reactionAnimState.playing) {
+    iconPlay.style.display = 'none';
+    iconPause.style.display = '';
+    reactionAnimState.animId = requestAnimationFrame(animationLoop);
+  } else {
+    iconPlay.style.display = '';
+    iconPause.style.display = 'none';
+    if (reactionAnimState.animId) {
+      cancelAnimationFrame(reactionAnimState.animId);
+    }
+  }
+};
+
+const loadReaction = async (name, reaction) => {
+  if (!viewer) return;
+
+  // Stop any existing animation
+  if (reactionAnimState && reactionAnimState.animId) {
+    cancelAnimationFrame(reactionAnimState.animId);
+  }
+
+  currentViewMode = 'reaction';
+  document.getElementById('empty-state').style.display = 'none';
+  document.getElementById('current-molecule-name').textContent = name;
+  document.getElementById('current-molecule-name').classList.add('glow');
+
+  // Hide molecule info, show reaction controls
+  document.getElementById('molecule-info').classList.add('hidden');
+  const controls = document.getElementById('reaction-controls');
+  controls.classList.remove('hidden');
+  document.getElementById('reaction-equation').textContent = reaction.equation;
+
+  // Reset play/pause icons
+  document.getElementById('icon-play').style.display = 'none';
+  document.getElementById('icon-pause').style.display = '';
+
+  // Fetch all SDFs
+  const fetchSdf = async (moleculeName) => {
+    const url = moleculeUrlMap[moleculeName];
+    if (!url) throw new Error(`SDF not found for: ${moleculeName}`);
+    const resp = await fetch(url);
+    const text = await resp.text();
+    return centerSdf(text);
+  };
+
+  try {
+    const reactantSdfs = await Promise.all(reaction.reactants.map(fetchSdf));
+    const productSdfs = await Promise.all(reaction.products.map(fetchSdf));
+
+    reactionAnimState = {
+      reactantSdfs,
+      productSdfs,
+      playing: true,
+      progress: 0,
+      animId: null,
+      speed: 0.003,
+    };
+
+    // Initial render and zoom
+    renderReactionFrame(0);
+    viewer.zoomTo();
+    viewer.zoom(0.7);
+    viewer.render();
+
+    // Start animation
+    reactionAnimState.animId = requestAnimationFrame(animationLoop);
+  } catch (err) {
+    console.error('Failed to load reaction:', err);
+    document.getElementById('current-molecule-name').textContent = 'Error loading reaction';
+  }
+
+  setTimeout(() => {
+    document.getElementById('current-molecule-name').classList.remove('glow');
+  }, 1000);
+};
+
 const setupMenu = () => {
   const list = document.getElementById('molecule-list');
   let firstItem = null;
@@ -348,6 +649,9 @@ const setupMenu = () => {
     const parts = path.split('/');
     let filename = parts[parts.length - 1];
     filename = filename.replace('.sdf', '').replace(/_/g, ' ');
+
+    // Build name→URL map for reaction system
+    moleculeUrlMap[filename] = url;
 
     const li = document.createElement('li');
     li.className = 'molecule-item';
@@ -402,6 +706,31 @@ const setupMenu = () => {
     });
 
     proteinList.appendChild(li);
+  }
+
+  // Reaction list
+  const reactionList = document.getElementById('reaction-list');
+  for (const [name, reaction] of Object.entries(reactionMeta)) {
+    const li = document.createElement('li');
+    li.className = 'molecule-item';
+
+    const nameEl = document.createElement('span');
+    nameEl.className = 'molecule-item-name';
+    nameEl.textContent = name;
+    li.appendChild(nameEl);
+
+    const eqEl = document.createElement('span');
+    eqEl.className = 'molecule-item-formula';
+    eqEl.textContent = reaction.equation;
+    li.appendChild(eqEl);
+
+    li.addEventListener('click', () => {
+      document.querySelectorAll('.molecule-item').forEach(el => el.classList.remove('active'));
+      li.classList.add('active');
+      loadReaction(name, reaction);
+    });
+
+    reactionList.appendChild(li);
   }
 
   if (firstItem) {
@@ -502,6 +831,15 @@ const setupControls = () => {
     }
 
     viewer.render();
+  });
+
+  // Reaction controls
+  document.getElementById('reaction-play-pause').addEventListener('click', toggleReactionPlayPause);
+
+  document.getElementById('reaction-timeline').addEventListener('input', (e) => {
+    if (!reactionAnimState) return;
+    reactionAnimState.progress = parseInt(e.target.value) / 1000;
+    renderReactionFrame(reactionAnimState.progress);
   });
 };
 
