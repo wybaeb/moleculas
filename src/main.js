@@ -134,6 +134,17 @@ const moleculeMeta = {
     condensed: '(CH3)3CLi',
     smiles: '[Li]C(C)(C)C',
   },
+  'Изобутан': {
+    cid: 6360,
+    formula: 'C4H10',
+    condensed: '(CH3)3CH',
+    smiles: 'CC(C)C',
+  },
+  'Литий-карборанат': {
+    formula: 'CHB11Cl11Li',
+    condensed: 'Li(CHB11Cl11)',
+    smiles: '[Li+].[CH-]1234B567(Cl)B89%10(Cl)B%11%12%13(Cl)B85%14(Cl)B%1158(Cl)B%12%11%15(Cl)B%139%12(Cl)B%1061(Cl)B%12%112(Cl)[B-]5%153(Cl)B%14874Cl',
+  },
   '2,3,7,8-Тетрахлордибензодиоксин': {
     cid: 15625,
     formula: 'C12H4Cl4O2',
@@ -399,6 +410,11 @@ const reactionMeta = {
     reactants: ['Формальдегид', 'Аммиак'],
     products: ['Метанимин', 'Вода'],
     equation: 'HCHO + NH₃ → CH₂=NH + H₂O',
+  },
+  'Нейтрализация карборановой кислоты': {
+    reactants: ['Карборановая кислота', 'трет-Бутиллитий'],
+    products: ['Литий-карборанат', 'Изобутан'],
+    equation: 'H(CHB₁₁Cl₁₁) + (CH₃)₃CLi → Li(CHB₁₁Cl₁₁) + (CH₃)₃CH',
   },
   'Разложение Novec 1230 серной кислотой': {
     reactants: ['Сухая вода (Novec 1230)', 'Серная кислота'],
