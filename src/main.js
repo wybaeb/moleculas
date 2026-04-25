@@ -128,6 +128,12 @@ const moleculeMeta = {
     condensed: 'FSO3H·SbF5',
     smiles: 'OS(=O)(=O)F.F[Sb](F)(F)(F)F',
   },
+  'трет-Бутиллитий': {
+    cid: 53628101,
+    formula: 'C4H9Li',
+    condensed: '(CH3)3CLi',
+    smiles: '[Li]C(C)(C)C',
+  },
   '2,3,7,8-Тетрахлордибензодиоксин': {
     cid: 15625,
     formula: 'C12H4Cl4O2',
