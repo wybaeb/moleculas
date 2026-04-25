@@ -505,7 +505,6 @@ const loadMolecule = async (name, url) => {
   // Restore controls hidden during protein view
   document.getElementById('style-toggle').style.display = '';
   document.getElementById('label-toggle').style.display = '';
-  document.getElementById('ar-export').style.display = '';
   document.getElementById('current-molecule-name').textContent = name;
   document.getElementById('current-molecule-name').classList.add('glow');
 
@@ -584,7 +583,6 @@ const loadProtein = async (name, meta) => {
   // Hide irrelevant controls for proteins
   document.getElementById('style-toggle').style.display = 'none';
   document.getElementById('label-toggle').style.display = 'none';
-  document.getElementById('ar-export').style.display = 'none';
 
   try {
     const response = await fetch(`https://files.rcsb.org/download/${meta.pdbId}.pdb`);

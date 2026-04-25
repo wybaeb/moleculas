@@ -5,12 +5,16 @@ import { zipSync, strToU8 } from 'three/examples/jsm/libs/fflate.module.js';
 const ElementColors = {
     H:  0xffffff, C:  0x909090, O:  0xff2200, N:  0x3050f8,
     S:  0xffff30, P:  0xff8000, Cl: 0x1ff01f, F:  0x90e050,
-    Br: 0xa62929, I:  0x940094, Default: 0xff00ff,
+    Br: 0xa62929, I:  0x940094, Fe: 0xe06633, Zn: 0x7d80b0,
+    Ca: 0x3dff00, Mg: 0x8aff00, Na: 0xab5cf2, K:  0x8f40d4,
+    Mn: 0x9c7ac7, Cu: 0xc88033, Se: 0xffa100, Default: 0xff00ff,
 };
 
 // Covalent radii (Å)
 const ElementRadii = {
-    H: 0.32, C: 0.75, O: 0.73, N: 0.71, S: 1.02, P: 1.06, Cl: 0.99, F: 0.71, Default: 0.8,
+    H: 0.32, C: 0.75, O: 0.73, N: 0.71, S: 1.02, P: 1.06, Cl: 0.99, F: 0.71,
+    Br: 1.14, I: 1.33, Fe: 1.24, Zn: 1.20, Ca: 1.74, Mg: 1.36, Na: 1.54,
+    K: 1.96, Mn: 1.17, Cu: 1.12, Se: 1.16, Default: 0.8,
 };
 
 function parseSDF(sdfText) {
@@ -209,9 +213,46 @@ function packUSDZ(files) {
     return zipSync(files, { level: 0 });
 }
 
-export async function generateUSDZFromSDF(sdfText) {
-    const parsed = parseSDF(sdfText);
-    if (!parsed) throw new Error('Could not parse SDF format');
+function parsePDB(pdbText) {
+    const lines = pdbText.split(/\r?\n/);
+    const atoms = [];
+    const bonds = [];
+    const serialMap = {};
+
+    for (const line of lines) {
+        const rec = line.substring(0, 6).trim();
+        if (rec === 'ATOM' || rec === 'HETATM') {
+            const serial = parseInt(line.substring(6, 11));
+            const x = parseFloat(line.substring(30, 38));
+            const y = parseFloat(line.substring(38, 46));
+            const z = parseFloat(line.substring(46, 54));
+            let element = line.substring(76, 78).trim();
+            if (!element) element = line.substring(12, 16).trim().replace(/\d/g, '').substring(0, 2);
+            serialMap[serial] = atoms.length;
+            atoms.push({ x, y, z, element });
+        } else if (rec === 'CONECT') {
+            const src = parseInt(line.substring(6, 11));
+            for (let col = 11; col < line.length; col += 5) {
+                const dst = parseInt(line.substring(col, col + 5));
+                if (!isNaN(dst) && src < dst) {
+                    bonds.push({ atom1: serialMap[src], atom2: serialMap[dst] });
+                }
+            }
+        }
+    }
+    return atoms.length ? { atoms, bonds } : null;
+}
+
+function detectFormat(text) {
+    const first = text.trimStart().substring(0, 80);
+    if (first.includes('ATOM') || first.includes('HEADER') || first.includes('REMARK')) return 'pdb';
+    return 'sdf';
+}
+
+export async function generateUSDZFromSDF(text) {
+    const fmt = detectFormat(text);
+    const parsed = fmt === 'pdb' ? parsePDB(text) : parseSDF(text);
+    if (!parsed) throw new Error('Could not parse molecule data');
 
     const usda = buildUSDA(parsed);
     const files = { 'scene.usda': strToU8(usda) };
