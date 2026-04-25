@@ -140,6 +140,11 @@ const moleculeMeta = {
     condensed: '(CH3)3CH',
     smiles: 'CC(C)C',
   },
+  'Литиевая соль магической кислоты': {
+    formula: 'F6LiO3SSb',
+    condensed: 'LiFSO3·SbF5',
+    smiles: '[Li]OS(=O)(=O)F.F[Sb](F)(F)(F)F',
+  },
   'Литий-карборанат': {
     formula: 'CHB11Cl11Li',
     condensed: 'Li(CHB11Cl11)',
@@ -410,6 +415,11 @@ const reactionMeta = {
     reactants: ['Формальдегид', 'Аммиак'],
     products: ['Метанимин', 'Вода'],
     equation: 'HCHO + NH₃ → CH₂=NH + H₂O',
+  },
+  'Нейтрализация магической кислоты': {
+    reactants: ['Магическая кислота', 'трет-Бутиллитий'],
+    products: ['Литиевая соль магической кислоты', 'Изобутан'],
+    equation: 'FSO₃H·SbF₅ + (CH₃)₃CLi → LiFSO₃·SbF₅ + (CH₃)₃CH',
   },
   'Нейтрализация карборановой кислоты': {
     reactants: ['Карборановая кислота', 'трет-Бутиллитий'],
