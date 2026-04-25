@@ -227,6 +227,79 @@ const moleculeMeta = {
     formula: 'C24H36O25S2',
     smiles: 'C1[C@@H]2[C@@H]([C@H](O1)[C@H]([C@H](O2)O)O)O[C@H]3[C@@H]([C@H]([C@H]([C@H](O3)CO)OS(=O)(=O)[O-])O[C@@H]4[C@@H]([C@@H]5[C@H]([C@H](O4)CO5)O[C@H]6[C@@H]([C@H]([C@H]([C@H](O6)CO)OS(=O)(=O)[O-])O)O)O)O',
   },
+  'Хлорбензальмалонодинитрил': {
+    cid: 17604,
+    formula: 'C10H5ClN2',
+    condensed: 'C6H4(Cl)CH=C(CN)2',
+    smiles: 'Clc1ccccc1/C=C(\\C#N)C#N',
+  },
+  'Дибенз b,f 1,4 оксазепин': {
+    cid: 9213,
+    formula: 'C13H9NO',
+    smiles: 'C1=CC=C2C(=C1)/N=C\\C3=CC=CC=C3O2',
+  },
+  'Циануровая кислота': {
+    cid: 7956,
+    formula: 'C3H3N3O3',
+    condensed: '(HNCO)3',
+    smiles: 'C1(=O)NC(=O)NC(=O)N1',
+  },
+  'Карбонат натрия': {
+    cid: 10340,
+    formula: 'Na2CO3',
+    condensed: 'Na2CO3',
+    smiles: '[Na+].[Na+].[O-]C([O-])=O',
+  },
+  'Хлорид аммония': {
+    cid: 25517,
+    formula: 'NH4Cl',
+    condensed: 'NH4Cl',
+    smiles: '[NH4+].[Cl-]',
+  },
+  'Метанимин': {
+    cid: 123139,
+    formula: 'CH3N',
+    condensed: 'CH2=NH',
+    smiles: 'C=N',
+  },
+  'Хлорноватистая кислота': {
+    cid: 24341,
+    formula: 'HOCl',
+    condensed: 'HOCl',
+    smiles: 'OCl',
+  },
+  'Билиановая кислота': {
+    formula: 'C24H34O8',
+    smiles: 'OC(=O)CCC1(CC(=O)C2C3CCC(C(C)CCC(O)=O)C3(C)CC(=O)C2C1C)C(O)=O',
+  },
+  'Йод': {
+    cid: 807,
+    formula: 'I2',
+    condensed: 'I2',
+    smiles: 'II',
+  },
+  'Билианат натрия': {
+    formula: 'C24H31Na3O8',
+    smiles: '[Na+].[Na+].[Na+].[O-]C(=O)CCC1(CC(=O)C2C3CCC(C(C)CCC(=O)[O-])C3(C)CC(=O)C2C1C)C(=O)[O-]',
+  },
+  'Пентафторпропановая кислота': {
+    cid: 62356,
+    formula: 'C3HF5O2',
+    condensed: 'CF3CF2COOH',
+    smiles: 'C(=O)(C(C(F)(F)F)(F)F)O',
+  },
+  'Гептафторпропан': {
+    cid: 67940,
+    formula: 'C3HF7',
+    condensed: '(CF3)2CFH',
+    smiles: 'C(C(F)(F)F)(C(F)(F)F)F',
+  },
+  'Триоксид серы': {
+    cid: 24682,
+    formula: 'SO3',
+    condensed: 'SO3',
+    smiles: 'O=S(=O)=O',
+  },
 };
 
 // Protein metadata: name → { pdbId, description, organism }
@@ -280,6 +353,56 @@ const reactionMeta = {
     products: ['Углекислый газ', 'Аммиак', 'Аммиак'],
     equation: 'CO(NH₂)₂ + H₂O → CO₂ + 2NH₃',
   },
+  'Синтез мочевины': {
+    reactants: ['Углекислый газ', 'Аммиак', 'Аммиак'],
+    products: ['Мочевина', 'Вода'],
+    equation: 'CO₂ + 2NH₃ → CO(NH₂)₂ + H₂O',
+  },
+  'Горение формальдегида': {
+    reactants: ['Формальдегид', 'Синглетный кислород'],
+    products: ['Углекислый газ', 'Вода'],
+    equation: 'CH₂O + O₂ → CO₂ + H₂O',
+  },
+  'Получение хлороводорода': {
+    reactants: ['Хлорид натрия', 'Серная кислота'],
+    products: ['Гидросульфат натрия', 'Соляная кислота'],
+    equation: 'NaCl + H₂SO₄ → NaHSO₄ + HCl',
+  },
+  'Гидролиз трихлоризоциануровой кислоты': {
+    reactants: ['Трихлоизоционуровая кислота', 'Вода', 'Вода', 'Вода'],
+    products: ['Циануровая кислота', 'Хлорноватистая кислота', 'Хлорноватистая кислота', 'Хлорноватистая кислота'],
+    equation: 'C₃Cl₃N₃O₃ + 3H₂O → C₃H₃N₃O₃ + 3HOCl',
+  },
+  'Поглощение CO₂ щёлочью': {
+    reactants: ['Углекислый газ', 'Гидроксид натрия', 'Гидроксид натрия'],
+    products: ['Карбонат натрия', 'Вода'],
+    equation: 'CO₂ + 2NaOH → Na₂CO₃ + H₂O',
+  },
+  'Образование хлорида аммония': {
+    reactants: ['Аммиак', 'Соляная кислота'],
+    products: ['Хлорид аммония'],
+    equation: 'NH₃ + HCl → NH₄Cl',
+  },
+  'Конденсация формальдегида с аммиаком': {
+    reactants: ['Формальдегид', 'Аммиак'],
+    products: ['Метанимин', 'Вода'],
+    equation: 'HCHO + NH₃ → CH₂=NH + H₂O',
+  },
+  'Разложение Novec 1230 серной кислотой': {
+    reactants: ['Сухая вода (Novec 1230)', 'Серная кислота'],
+    products: ['Пентафторпропановая кислота', 'Гептафторпропан', 'Триоксид серы'],
+    equation: 'C₆F₁₂O + H₂SO₄ → C₂F₅COOH + (CF₃)₂CFH + SO₃',
+  },
+  'Йодная проба каппа-каррагинана': {
+    reactants: ['Каппа-каррагинан', 'Йод', 'Йод'],
+    products: ['Каппа-каррагинан'],
+    equation: 'κ-каррагинан + nI₂ → κ-каррагинан·nI₂ (комплекс)',
+  },
+  'Билиановая кислота + карбонат натрия': {
+    reactants: ['Билиановая кислота', 'Билиановая кислота', 'Карбонат натрия', 'Карбонат натрия', 'Карбонат натрия'],
+    products: ['Билианат натрия', 'Билианат натрия', 'Вода', 'Вода', 'Вода', 'Углекислый газ', 'Углекислый газ', 'Углекислый газ'],
+    equation: '2C₂₄H₃₄O₈ + 3Na₂CO₃ → 2C₂₄H₃₁Na₃O₈ + 3H₂O + 3CO₂',
+  },
 };
 
 // Render formula with HTML subscripts
@@ -294,6 +417,7 @@ let labelsEnabled = false;
 let currentSdfText = null;
 let currentMoleculeName = '';
 let currentViewMode = 'molecule'; // 'molecule' or 'protein'
+let spinEnabled = false;
 
 const initViewer = () => {
   const container = document.getElementById('viewer-3d');
@@ -374,9 +498,13 @@ const loadMolecule = async (name, url) => {
   currentViewMode = 'molecule';
   currentStyle = { stick: {} };
   document.getElementById('empty-state').style.display = 'none';
-  // Reset structural formula label
+  // Reset labels after protein view
   const sfLabel = document.querySelector('#info-structural-formula-block .info-label');
   if (sfLabel) sfLabel.textContent = 'Структурная формула';
+  document.querySelector('.info-formula .info-label').textContent = 'Брутто-формула';
+  // Restore controls hidden during protein view
+  document.getElementById('label-toggle').style.display = '';
+  document.getElementById('ar-export').style.display = '';
   document.getElementById('current-molecule-name').textContent = name;
   document.getElementById('current-molecule-name').classList.add('glow');
 
@@ -402,6 +530,7 @@ const loadMolecule = async (name, url) => {
   }
 
   viewer.zoomTo();
+  if (spinEnabled) viewer.spin('y');
   viewer.render();
 
   // Update info panel
@@ -418,8 +547,14 @@ const updateProteinInfoPanel = (name, meta) => {
   const imgEl = document.getElementById('info-structure-img');
   const structuralBlock = document.getElementById('info-structural-formula-block');
   const structuralEl = document.getElementById('info-structural-formula-value');
+  const condensedBlock = document.getElementById('info-condensed-block');
 
+  // Change label to "Описание"
+  panel.querySelector('.info-formula .info-label').textContent = 'Описание';
   formulaEl.innerHTML = `<span style="font-size:14px">${meta.description}</span>`;
+
+  // Hide condensed formula — not relevant for proteins
+  condensedBlock.classList.add('hidden');
 
   if (meta.organism) {
     structuralEl.textContent = meta.organism;
@@ -445,6 +580,10 @@ const loadProtein = async (name, meta) => {
   document.getElementById('current-molecule-name').textContent = name;
   document.getElementById('current-molecule-name').classList.add('glow');
 
+  // Hide irrelevant controls for proteins
+  document.getElementById('label-toggle').style.display = 'none';
+  document.getElementById('ar-export').style.display = 'none';
+
   try {
     const response = await fetch(`https://files.rcsb.org/download/${meta.pdbId}.pdb`);
     const data = await response.text();
@@ -455,6 +594,7 @@ const loadProtein = async (name, meta) => {
     viewer.addModel(data, 'pdb');
     viewer.setStyle({}, { cartoon: { color: 'spectrum' } });
     viewer.zoomTo();
+    if (spinEnabled) viewer.spin('y');
     viewer.render();
 
     updateProteinInfoPanel(name, meta);
@@ -537,7 +677,18 @@ const renderReactionFrame = (progress) => {
     });
   }
 
-  viewer.setStyle({}, { stick: {} });
+  if (labelsEnabled) {
+    viewer.setStyle({}, { stick: { multipleBond: true, radius: 0.1 } });
+    viewer.addPropertyLabels('elem', {}, {
+      fontColor: 'white',
+      backgroundColor: 'black',
+      backgroundOpacity: 0.8,
+      fontSize: 14,
+      borderRadius: 4,
+    });
+  } else {
+    viewer.setStyle({}, { stick: {} });
+  }
   viewer.render();
 };
 
@@ -833,6 +984,24 @@ const setupControls = () => {
     viewer.render();
   });
 
+  // Spin toggle
+  document.getElementById('spin-toggle').addEventListener('click', (e) => {
+    if (!viewer) return;
+    spinEnabled = !spinEnabled;
+    const btn = e.currentTarget;
+    if (spinEnabled) {
+      viewer.spin('y');
+      btn.style.color = '#fff';
+      btn.style.borderColor = 'rgba(99, 102, 241, 0.8)';
+      btn.style.background = 'rgba(99, 102, 241, 0.2)';
+    } else {
+      viewer.spin(false);
+      btn.style.color = '';
+      btn.style.borderColor = '';
+      btn.style.background = '';
+    }
+  });
+
   // Reaction controls
   document.getElementById('reaction-play-pause').addEventListener('click', toggleReactionPlayPause);
 
@@ -843,8 +1012,21 @@ const setupControls = () => {
   });
 };
 
+const setupTabs = () => {
+  const tabs = document.querySelectorAll('.sidebar-tab');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.add('hidden'));
+      document.getElementById(`tab-${tab.dataset.tab}`).classList.remove('hidden');
+    });
+  });
+};
+
 document.addEventListener('DOMContentLoaded', () => {
   initViewer();
   setupMenu();
   setupControls();
+  setupTabs();
 });

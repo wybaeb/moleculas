@@ -91,24 +91,50 @@ h4 {
   margin-left: 36px;
 }
 
+/* Sidebar Tabs */
+.sidebar-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border-color);
+  padding: 0 12px;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.sidebar-tab {
+  flex: 1;
+  padding: 12px 8px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--text-secondary);
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.sidebar-tab:hover {
+  color: var(--text-primary);
+  background: rgba(99, 102, 241, 0.05);
+}
+
+.sidebar-tab.active {
+  color: #fff;
+  border-bottom-color: var(--accent-color);
+  text-shadow: 0 0 12px var(--accent-glow);
+}
+
+.tab-content.hidden {
+  display: none;
+}
+
 .molecule-list-container {
-  padding: 24px;
+  padding: 16px 24px;
   flex: 1;
   overflow-y: auto;
-}
-
-.molecule-list-container h2 {
-  font-size: 14px;
-  color: var(--text-secondary);
-  margin-bottom: 16px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.section-divider {
-  margin-top: 24px !important;
-  padding-top: 20px;
-  border-top: 1px solid var(--border-color);
 }
 
 #molecule-list,
