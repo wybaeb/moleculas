@@ -503,6 +503,7 @@ const loadMolecule = async (name, url) => {
   if (sfLabel) sfLabel.textContent = 'Структурная формула';
   document.querySelector('.info-formula .info-label').textContent = 'Брутто-формула';
   // Restore controls hidden during protein view
+  document.getElementById('style-toggle').style.display = '';
   document.getElementById('label-toggle').style.display = '';
   document.getElementById('ar-export').style.display = '';
   document.getElementById('current-molecule-name').textContent = name;
@@ -581,6 +582,7 @@ const loadProtein = async (name, meta) => {
   document.getElementById('current-molecule-name').classList.add('glow');
 
   // Hide irrelevant controls for proteins
+  document.getElementById('style-toggle').style.display = 'none';
   document.getElementById('label-toggle').style.display = 'none';
   document.getElementById('ar-export').style.display = 'none';
 
