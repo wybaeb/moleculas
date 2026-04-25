@@ -929,12 +929,12 @@ const setupControls = () => {
   });
 
   document.getElementById('ar-export').addEventListener('click', async () => {
-    if (!currentSdfText) return;
+    if (!viewer) return;
     const btn = document.getElementById('ar-export');
     btn.disabled = true;
     try {
-      const { generateUSDZFromSDF } = await import('./utils/sdfToUsdz.js');
-      const arraybuffer = await generateUSDZFromSDF(currentSdfText);
+      const { generateUSDZFromScene } = await import('./utils/sdfToUsdz.js');
+      const arraybuffer = await generateUSDZFromScene(viewer);
       const blob = new Blob([arraybuffer], { type: 'model/vnd.usdz+zip' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
