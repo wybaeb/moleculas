@@ -122,6 +122,12 @@ const moleculeMeta = {
     smiles: 'F.F[Sb](F)(F)(F)F',
     structureImg: './structures/Гексафторсурьмяная_кислота.png',
   },
+  'Магическая кислота': {
+    cid: 16211378,
+    formula: 'HF6O3SSb',
+    condensed: 'FSO3H·SbF5',
+    smiles: 'OS(=O)(=O)F.F[Sb](F)(F)(F)F',
+  },
   '2,3,7,8-Тетрахлордибензодиоксин': {
     cid: 15625,
     formula: 'C12H4Cl4O2',
