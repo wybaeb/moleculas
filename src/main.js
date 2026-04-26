@@ -140,6 +140,27 @@ const moleculeMeta = {
     condensed: '(CH3)3CH',
     smiles: 'CC(C)C',
   },
+  '2-Хлорбензальдегид': {
+    cid: 6996,
+    formula: 'C7H5ClO',
+    smiles: 'O=Cc1ccccc1Cl',
+  },
+  'Малонодинитрил': {
+    cid: 8010,
+    formula: 'C3H2N2',
+    condensed: 'CH2(CN)2',
+    smiles: 'N#CCC#N',
+  },
+  '2-Аминофенол': {
+    cid: 5801,
+    formula: 'C6H7NO',
+    smiles: 'Nc1ccccc1O',
+  },
+  'Салициловый альдегид': {
+    cid: 6998,
+    formula: 'C7H6O2',
+    smiles: 'O=Cc1ccccc1O',
+  },
   'Литиевая соль магической кислоты': {
     formula: 'F6LiO3SSb',
     condensed: 'LiFSO3·SbF5',
@@ -415,6 +436,11 @@ const reactionMeta = {
     reactants: ['Формальдегид', 'Аммиак'],
     products: ['Метанимин', 'Вода'],
     equation: 'HCHO + NH₃ → CH₂=NH + H₂O',
+  },
+  'Гидролиз CS и CR': {
+    reactants: ['Хлорбензальмалонодинитрил', 'Дибенз b,f 1,4 оксазепин', 'Вода', 'Вода', 'Вода'],
+    products: ['2-Хлорбензальдегид', 'Малонодинитрил', '2-Аминофенол', 'Салициловый альдегид'],
+    equation: 'C₁₀H₅ClN₂ + C₁₃H₉NO + 3H₂O → C₇H₅ClO + CH₂(CN)₂ + C₆H₇NO + C₇H₆O₂',
   },
   'Нейтрализация магической кислоты': {
     reactants: ['Магическая кислота', 'трет-Бутиллитий'],
