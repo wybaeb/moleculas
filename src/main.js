@@ -327,6 +327,12 @@ const moleculeMeta = {
     condensed: 'I2',
     smiles: 'II',
   },
+  'Крахмал мальтоза': {
+    cid: 439186,
+    formula: 'C12H22O11',
+    condensed: '(C6H10O5)2·H2O',
+    smiles: 'OC1C(O)C(OC(C1O)CO)OC2C(O)C(O)C(OC2CO)O',
+  },
   'Билианат натрия': {
     formula: 'C24H31Na3O8',
     smiles: '[Na+].[Na+].[Na+].[O-]C(=O)CCC1(CC(=O)C2C3CCC(C(C)CCC(=O)[O-])C3(C)CC(=O)C2C1C)C(=O)[O-]',
@@ -456,6 +462,11 @@ const reactionMeta = {
     reactants: ['Сухая вода (Novec 1230)', 'Серная кислота'],
     products: ['Пентафторпропановая кислота', 'Гептафторпропан', 'Триоксид серы'],
     equation: 'C₆F₁₂O + H₂SO₄ → C₂F₅COOH + (CF₃)₂CFH + SO₃',
+  },
+  'Йодная проба крахмала': {
+    reactants: ['Крахмал мальтоза', 'Йод'],
+    products: ['Крахмал мальтоза', 'Йод'],
+    equation: '(C₆H₁₀O₅)ₙ + I₂ → (C₆H₁₀O₅)ₙ·I₂ (синий комплекс)',
   },
   'Билиановая кислота + карбонат натрия': {
     reactants: ['Билиановая кислота', 'Билиановая кислота', 'Карбонат натрия', 'Карбонат натрия', 'Карбонат натрия'],
