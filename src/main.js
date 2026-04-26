@@ -786,6 +786,31 @@ const loadReaction = async (name, reaction) => {
   controls.classList.remove('hidden');
   document.getElementById('reaction-equation').textContent = reaction.equation;
 
+  // Build clickable molecule links
+  const participantsEl = document.getElementById('reaction-participants');
+  participantsEl.innerHTML = '';
+  const uniqueReactants = [...new Set(reaction.reactants)];
+  const uniqueProducts = [...new Set(reaction.products)];
+
+  const addLink = (molName) => {
+    const a = document.createElement('a');
+    a.className = 'reaction-mol-link';
+    a.textContent = molName;
+    a.href = `#mol:${encodeURIComponent(molName)}`;
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      navigateToMolecule(molName);
+    });
+    participantsEl.appendChild(a);
+  };
+
+  uniqueReactants.forEach(addLink);
+  const arrow = document.createElement('span');
+  arrow.className = 'reaction-arrow';
+  arrow.textContent = '→';
+  participantsEl.appendChild(arrow);
+  uniqueProducts.forEach(addLink);
+
   // Reset play/pause icons
   document.getElementById('icon-play').style.display = 'none';
   document.getElementById('icon-pause').style.display = '';
@@ -830,6 +855,25 @@ const loadReaction = async (name, reaction) => {
   }, 1000);
 };
 
+// Registry: molecule name → { element, url, tab }
+const moleculeRegistry = {};
+
+const navigateToMolecule = (name) => {
+  const entry = moleculeRegistry[name];
+  if (!entry) return;
+  // Switch to the correct tab
+  document.querySelectorAll('.sidebar-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(c => c.classList.add('hidden'));
+  const tab = document.querySelector(`.sidebar-tab[data-tab="${entry.tab}"]`);
+  if (tab) tab.classList.add('active');
+  document.getElementById(`tab-${entry.tab}`).classList.remove('hidden');
+  // Click the item
+  entry.element.click();
+  entry.element.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  // Update hash
+  history.replaceState(null, '', `#mol:${encodeURIComponent(name)}`);
+};
+
 const setupMenu = () => {
   const list = document.getElementById('molecule-list');
   let firstItem = null;
@@ -866,6 +910,7 @@ const setupMenu = () => {
     });
 
     list.appendChild(li);
+    moleculeRegistry[filename] = { element: li, url, tab: 'molecules' };
 
     if (!firstItem) {
       firstItem = { element: li, name: filename, url: url };
@@ -1067,4 +1112,18 @@ document.addEventListener('DOMContentLoaded', () => {
   setupMenu();
   setupControls();
   setupTabs();
+
+  // Handle hash navigation on load
+  const hash = decodeURIComponent(location.hash);
+  if (hash.startsWith('#mol:')) {
+    const name = hash.substring(5);
+    setTimeout(() => navigateToMolecule(name), 100);
+  }
+});
+
+window.addEventListener('hashchange', () => {
+  const hash = decodeURIComponent(location.hash);
+  if (hash.startsWith('#mol:')) {
+    navigateToMolecule(hash.substring(5));
+  }
 });
