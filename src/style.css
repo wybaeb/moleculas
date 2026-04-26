@@ -511,37 +511,18 @@ h4 {
   white-space: nowrap;
 }
 
-#reaction-participants {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  align-items: center;
-  margin-top: 6px;
-}
-
-.reaction-mol-link {
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
+#reaction-equation .reaction-mol-link {
   color: var(--accent-hover);
-  background: rgba(99, 102, 241, 0.1);
-  border: 1px solid rgba(99, 102, 241, 0.3);
-  border-radius: 8px;
-  padding: 3px 8px;
-  cursor: pointer;
   text-decoration: none;
-  transition: all 0.2s ease;
-  white-space: nowrap;
+  cursor: pointer;
+  border-bottom: 1px dashed rgba(99, 102, 241, 0.4);
+  transition: all 0.15s ease;
+  padding: 0 1px;
 }
 
-.reaction-mol-link:hover {
-  background: rgba(99, 102, 241, 0.25);
-  border-color: rgba(99, 102, 241, 0.6);
+#reaction-equation .reaction-mol-link:hover {
   color: #fff;
-}
-
-.reaction-arrow {
-  color: var(--text-secondary);
-  font-size: 13px;
+  border-bottom-color: #fff;
 }
 
 #reaction-list {

@@ -784,32 +784,46 @@ const loadReaction = async (name, reaction) => {
   document.getElementById('molecule-info').classList.add('hidden');
   const controls = document.getElementById('reaction-controls');
   controls.classList.remove('hidden');
-  document.getElementById('reaction-equation').textContent = reaction.equation;
+  // Build equation with clickable formula links
+  const eqEl = document.getElementById('reaction-equation');
+  eqEl.innerHTML = '';
 
-  // Build clickable molecule links
-  const participantsEl = document.getElementById('reaction-participants');
-  participantsEl.innerHTML = '';
-  const uniqueReactants = [...new Set(reaction.reactants)];
-  const uniqueProducts = [...new Set(reaction.products)];
-
-  const addLink = (molName) => {
-    const a = document.createElement('a');
-    a.className = 'reaction-mol-link';
-    a.textContent = molName;
-    a.href = `#mol:${encodeURIComponent(molName)}`;
-    a.addEventListener('click', (e) => {
-      e.preventDefault();
-      navigateToMolecule(molName);
+  // Collect unique molecules with their formulas and counts
+  const buildSide = (names) => {
+    const counts = {};
+    const order = [];
+    names.forEach(n => {
+      if (!counts[n]) { counts[n] = 0; order.push(n); }
+      counts[n]++;
     });
-    participantsEl.appendChild(a);
+    return order.map(n => ({ name: n, count: counts[n] }));
   };
 
-  uniqueReactants.forEach(addLink);
+  const addFormula = (name, count) => {
+    const meta = moleculeMeta[name];
+    const formula = meta ? (meta.condensed || meta.formula) : name;
+    if (eqEl.children.length > 0) {
+      const plus = document.createElement('span');
+      plus.textContent = ' + ';
+      eqEl.appendChild(plus);
+    }
+    const a = document.createElement('a');
+    a.className = 'reaction-mol-link';
+    a.title = name;
+    a.href = `#mol:${encodeURIComponent(name)}`;
+    a.innerHTML = (count > 1 ? count : '') + renderFormula(formula);
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      navigateToMolecule(name);
+    });
+    eqEl.appendChild(a);
+  };
+
+  buildSide(reaction.reactants).forEach(({ name, count }) => addFormula(name, count));
   const arrow = document.createElement('span');
-  arrow.className = 'reaction-arrow';
-  arrow.textContent = '→';
-  participantsEl.appendChild(arrow);
-  uniqueProducts.forEach(addLink);
+  arrow.textContent = ' → ';
+  eqEl.appendChild(arrow);
+  buildSide(reaction.products).forEach(({ name, count }) => addFormula(name, count));
 
   // Reset play/pause icons
   document.getElementById('icon-play').style.display = 'none';
