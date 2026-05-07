@@ -355,6 +355,51 @@ const moleculeMeta = {
     condensed: 'SO3',
     smiles: 'O=S(=O)=O',
   },
+  'Литий': {
+    cid: 3028194,
+    formula: 'Li',
+    condensed: 'Li',
+    smiles: '[Li]',
+  },
+  '2,2,6,6-Тетраметилпиперидин': {
+    cid: 7959,
+    formula: 'C9H19N',
+    condensed: 'HN[C(CH3)2(CH2)]2CH2',
+    smiles: 'CC1(C)CCCC(C)(C)N1',
+  },
+  '18-Краун-6': {
+    cid: 2750,
+    formula: 'C12H24O6',
+    condensed: '(CH2CH2O)6',
+    smiles: 'C1COCCOCCOCCOCCOCCO1',
+  },
+  'Тетраметилпиперидид цезия': {
+    formula: 'C9H18CsN',
+    condensed: 'CsN[C(CH3)2(CH2)]2CH2',
+    smiles: '[Cs+].CC1(CCCC([N-]1)(C)C)C',
+  },
+  'Катион Cs(18-краун-6)': {
+    formula: 'C12H24CsO6',
+    condensed: '[Cs(18-crown-6)]+',
+    smiles: '[Cs+].C1COCCOCCOCCOCCOCCO1',
+  },
+  'Электрид Cs(18-краун-6)': {
+    formula: 'C12H24CsO6',
+    condensed: '[Cs(18-crown-6)]+·e-',
+    smiles: '[Cs+].C1COCCOCCOCCOCCOCCO1',
+    structureImg: './structures/Электрид_Cs(18-краун-6).png',
+  },
+  'Циннаменил': {
+    cid: 637511,
+    formula: 'C9H8O',
+    condensed: 'C6H5CH=CHCHO',
+    smiles: 'O=C/C=C/c1ccccc1',
+  },
+  'Метилпропинилендигидроксициннаменилакрилическая кислота': {
+    formula: 'C16H14O4',
+    condensed: 'C6H5CH=CHC(OH)=C(OH)C≡CC(CH3)=CHCOOH',
+    smiles: 'OC(=O)/C(C)=C/C#C/C(O)=C(O)/C=C/c1ccccc1',
+  },
   'Цианат аммония': {
     cid: 517382,
     formula: 'CH4N2O',
@@ -489,6 +534,11 @@ const reactionMeta = {
     reactants: ['Цианат аммония'],
     products: ['Мочевина'],
     equation: 'NH₄OCN → CO(NH₂)₂',
+  },
+  'Восстановление LiTMP электридом цезия': {
+    reactants: ['Электрид Cs(18-краун-6)', '2,2,6,6-Тетраметилпиперидид лития'],
+    products: ['Тетраметилпиперидид цезия', 'Литий', '18-Краун-6'],
+    equation: '[Cs(18-crown-6)]⁺·e⁻ + LiTMP → CsTMP + Li⁰ + 18-crown-6',
   },
   'Билиановая кислота + карбонат натрия': {
     reactants: ['Билиановая кислота', 'Билиановая кислота', 'Карбонат натрия', 'Карбонат натрия', 'Карбонат натрия'],
