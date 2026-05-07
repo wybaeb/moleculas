@@ -355,6 +355,23 @@ const moleculeMeta = {
     condensed: 'SO3',
     smiles: 'O=S(=O)=O',
   },
+  'Цианат аммония': {
+    cid: 517382,
+    formula: 'CH4N2O',
+    condensed: 'NH4OCN',
+    smiles: '[NH4+].[O-]C#N',
+  },
+  'Метоксипропандигидротетраоксиметасульфоновая кислота': {
+    formula: 'C4H10O7S',
+    condensed: 'CH3OCH(OH)CH(OH)CH(OH)SO3H',
+    smiles: 'OC(S(=O)(=O)O)C(O)C(O)OC',
+  },
+  'Тетракис-тиофенолят-тетра-мю3-сульфидо-тетраферрат(2-)': {
+    formula: 'C24H20Fe4S8',
+    condensed: '[Fe4S4(SC6H5)4]2-',
+    smiles: '[S-]c1ccccc1.[S-]c1ccccc1.[S-]c1ccccc1.[S-]c1ccccc1.[Fe].[Fe].[Fe].[Fe].[S].[S].[S].[S]',
+    structureImg: './structures/Тетракис-тиофенолят-тетра-мю3-сульфидо-тетраферрат(2-).png',
+  },
 };
 
 // Protein metadata: name → { pdbId, description, organism }
@@ -467,6 +484,11 @@ const reactionMeta = {
     reactants: ['Крахмал мальтоза', 'Йод'],
     products: ['Крахмал мальтоза', 'Йод'],
     equation: '(C₆H₁₀O₅)ₙ + I₂ → (C₆H₁₀O₅)ₙ·I₂ (синий комплекс)',
+  },
+  'Разложение цианата аммония': {
+    reactants: ['Цианат аммония'],
+    products: ['Мочевина'],
+    equation: 'NH₄OCN → CO(NH₂)₂',
   },
   'Билиановая кислота + карбонат натрия': {
     reactants: ['Билиановая кислота', 'Билиановая кислота', 'Карбонат натрия', 'Карбонат натрия', 'Карбонат натрия'],
