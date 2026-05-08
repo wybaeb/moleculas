@@ -421,6 +421,22 @@ const moleculeMeta = {
     smiles: '[Cs+].C1COCCOCCOCCOCCOCCO1',
     structureImg: './structures/Электрид_Cs(18-краун-6).png',
   },
+  'Фенолфталеин': {
+    cid: 4764,
+    formula: 'C20H14O4',
+    smiles: 'C1=CC=C2C(=C1)C(=O)OC2(C3=CC=C(C=C3)O)C4=CC=C(C=C4)O',
+  },
+  'Метиловый оранжевый': {
+    cid: 23673835,
+    formula: 'C14H14N3NaO3S',
+    condensed: '(CH3)2NC6H4N=NC6H4SO3Na',
+    smiles: 'CN(C)C1=CC=C(C=C1)N=NC2=CC=C(C=C2)S(=O)(=O)[O-].[Na+]',
+  },
+  'Бромтимоловый синий': {
+    cid: 6450,
+    formula: 'C27H28Br2O5S',
+    smiles: 'CC1=C(C(=C(C=C1C2(C3=CC=CC=C3S(=O)(=O)O2)C4=CC(=C(C(=C4C)Br)O)C(C)C)C(C)C)O)Br',
+  },
   'Спектралон (PTFE)': {
     formula: 'C4F10',
     condensed: 'CF3(CF2)2CF3',
