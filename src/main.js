@@ -3,6 +3,38 @@ import './style.css';
 // Dynamically import all .sdf files
 const moleculePaths = import.meta.glob('./molecules/*.sdf', { query: '?url', import: 'default', eager: true });
 
+// Fill in missing van der Waals radii for elements absent in 3Dmol.js
+if (typeof $3Dmol !== 'undefined' && $3Dmol.GLModel) {
+  Object.assign($3Dmol.GLModel.vdwRadii, {
+    // Alkali & alkaline earth (ensure present)
+    'Li': 1.82, 'Be': 1.53, 'Na': 2.27, 'Mg': 1.73,
+    'K': 2.75, 'Ca': 2.31, 'Rb': 3.03, 'Sr': 2.49,
+    'Cs': 3.43, 'Ba': 2.68, 'Fr': 3.48, 'Ra': 2.83,
+    // p-block gaps
+    'B': 1.92, 'Al': 1.84, 'Po': 1.97, 'At': 2.02, 'Rn': 2.20,
+    // 3d transition metals
+    'Sc': 2.15, 'Ti': 2.11, 'V': 2.07, 'Cr': 2.06,
+    'Mn': 2.05, 'Fe': 2.04, 'Co': 2.00,
+    // 4d transition metals
+    'Y': 2.32, 'Zr': 2.23, 'Nb': 2.18, 'Mo': 2.17,
+    'Tc': 2.16, 'Ru': 2.13, 'Rh': 2.10,
+    // 5d transition metals
+    'Hf': 2.23, 'Ta': 2.22, 'W': 2.18, 'Re': 2.16, 'Os': 2.16, 'Ir': 2.13,
+    // Lanthanides (Alvarez 2013)
+    'La': 2.43, 'Ce': 2.42, 'Pr': 2.40, 'Nd': 2.39, 'Pm': 2.38,
+    'Sm': 2.36, 'Eu': 2.35, 'Gd': 2.34, 'Tb': 2.33, 'Dy': 2.31,
+    'Ho': 2.30, 'Er': 2.29, 'Tm': 2.27, 'Yb': 2.26, 'Lu': 2.24,
+    // Actinides
+    'Ac': 2.47, 'Th': 2.45, 'Pa': 2.43, 'Np': 2.39, 'Pu': 2.43,
+    'Am': 2.44, 'Cm': 2.45, 'Bk': 2.44, 'Cf': 2.43, 'Es': 2.42,
+    'Fm': 2.41, 'Md': 2.40, 'No': 2.39, 'Lr': 2.38,
+    // Superheavy elements 104-118 (predicted, Pyykkö / periodic trends)
+    'Rf': 2.30, 'Db': 2.25, 'Sg': 2.20, 'Bh': 2.15, 'Hs': 2.10,
+    'Mt': 2.05, 'Ds': 2.00, 'Rg': 1.95, 'Cn': 1.90,
+    'Nh': 1.87, 'Fl': 1.83, 'Mc': 1.80, 'Lv': 1.75, 'Ts': 2.10, 'Og': 2.20,
+  });
+}
+
 // Metadata: filename stem → { cid, formula }
 // formula uses plain text with ^ for subscript markers replaced in renderFormula()
 const moleculeMeta = {
@@ -388,6 +420,28 @@ const moleculeMeta = {
     condensed: '[Cs(18-crown-6)]+·e-',
     smiles: '[Cs+].C1COCCOCCOCCOCCOCCO1',
     structureImg: './structures/Электрид_Cs(18-краун-6).png',
+  },
+  'Спектралон (PTFE)': {
+    formula: 'C4F10',
+    condensed: 'CF3(CF2)2CF3',
+    smiles: 'FC(F)(F)C(F)(F)C(F)(F)C(F)(F)F',
+  },
+  'Вантаблэк (коронен)': {
+    cid: 5765,
+    formula: 'C24H12',
+    condensed: 'C24H12',
+    smiles: 'c1cc2ccc3ccc4ccc5ccc6ccc1c7c2c3c4c5c67',
+  },
+  'Электрид Og(18-краун-6)': {
+    formula: 'C12H24O6Og',
+    condensed: '[Og(18-crown-6)]+·e-',
+    smiles: '[Og+].C1COCCOCCOCCOCCOCCO1',
+  },
+  'Электрид Fr(18-краун-6)': {
+    formula: 'C12H24FrO6',
+    condensed: '[Fr(18-crown-6)]+·e-',
+    smiles: '[Fr+].C1COCCOCCOCCOCCOCCO1',
+    structureImg: './structures/Электрид_Fr(18-краун-6).png',
   },
   'Циннаменил': {
     cid: 637511,
