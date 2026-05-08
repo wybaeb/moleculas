@@ -421,6 +421,12 @@ const moleculeMeta = {
     smiles: '[Cs+].C1COCCOCCOCCOCCOCCO1',
     structureImg: './structures/Электрид_Cs(18-краун-6).png',
   },
+  'Дихлордифенилметан': {
+    cid: 11577,
+    formula: 'C13H10Cl2',
+    condensed: '(C6H5)2CCl2',
+    smiles: 'ClC(Cl)(c1ccccc1)c1ccccc1',
+  },
   'Фенолфталеин': {
     cid: 4764,
     formula: 'C20H14O4',
