@@ -421,6 +421,16 @@ const moleculeMeta = {
     smiles: '[Cs+].C1COCCOCCOCCOCCOCCO1',
     structureImg: './structures/Электрид_Cs(18-краун-6).png',
   },
+  "Тетрацикло[4.3.0.02,4.03,7]нон-8-ен": {
+    cid: 576093,
+    formula: 'C9H10',
+    smiles: 'C1=CC2C3CC(C1C23)C',
+  },
+  "Динафто[8,1,2-abc 2',1',8'-klm]коронен": {
+    cid: 143000,
+    formula: 'C36H16',
+    smiles: 'c1cc2ccc3ccc4ccc5ccc6ccc7ccc8ccc1c9c2c3c4c5c6c7c8c9',
+  },
   'Дихлордифенилметан': {
     cid: 11577,
     formula: 'C13H10Cl2',
