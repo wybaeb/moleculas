@@ -421,6 +421,12 @@ const moleculeMeta = {
     smiles: '[Cs+].C1COCCOCCOCCOCCOCCO1',
     structureImg: './structures/Электрид_Cs(18-краун-6).png',
   },
+  'Пингвинон': {
+    cid: 12564106,
+    formula: 'C10H14O',
+    condensed: '3,4,4,5-тетраметилциклогекс-2-ен-1-он',
+    smiles: 'CC1CC(=O)C=C(C)C1(C)C',
+  },
   "Тетрацикло[4.3.0.02,4.03,7]нон-8-ен": {
     cid: 576093,
     formula: 'C9H10',
