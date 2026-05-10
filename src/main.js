@@ -421,6 +421,12 @@ const moleculeMeta = {
     smiles: '[Cs+].C1COCCOCCOCCOCCOCCO1',
     structureImg: './structures/Электрид_Cs(18-краун-6).png',
   },
+  'Гидазепам': {
+    cid: 121919,
+    formula: 'C17H15BrN4O2',
+    condensed: 'гидразинокарбонилметилбромфенилдигидробензодиазепин',
+    smiles: 'NNC(=O)CN1C(=O)CN=C(c2ccccc2)c3cc(Br)ccc13',
+  },
   'Нанопутян': {
     cid: 11353257,
     formula: 'C39H42O2',
