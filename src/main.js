@@ -421,6 +421,16 @@ const moleculeMeta = {
     smiles: '[Cs+].C1COCCOCCOCCOCCOCCO1',
     structureImg: './structures/Электрид_Cs(18-краун-6).png',
   },
+  'Нанопутян': {
+    cid: 11353257,
+    formula: 'C39H42O2',
+    smiles: 'CCCC#CC1=CC(=C2C(=C1)C1=CC(=CC(=C1C1OCCO1)C#CCCC)C#CCCC)C#CCCC',
+  },
+  'Раствор Люголя (KI3)': {
+    formula: 'KI3',
+    condensed: 'KI·I2',
+    smiles: '[K+].[I-]([I])[I]',
+  },
   'Пингвинон': {
     cid: 12564106,
     formula: 'C10H14O',
