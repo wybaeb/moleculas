@@ -421,6 +421,12 @@ const moleculeMeta = {
     smiles: '[Cs+].C1COCCOCCOCCOCCOCCO1',
     structureImg: './structures/Электрид_Cs(18-краун-6).png',
   },
+  'Кокамидопропилпропиленгликольдимонийхлоридфосфат': {
+    cid: 135390901,
+    formula: 'C78H162Cl3N6O10P',
+    condensed: '(стеарамидопропил-PG-димоний)3·PO4·3Cl',
+    smiles: 'CCCCCCCCCCCCCCCCCC(=O)NCCC[N+](C)(C)CC(COP(=O)(OCC(C[N+](C)(C)CCCNC(=O)CCCCCCCCCCCCCCCCC)O)OCC(C[N+](C)(C)CCCNC(=O)CCCCCCCCCCCCCCCCC)O)O.[Cl-].[Cl-].[Cl-]',
+  },
   'Гидазепам': {
     cid: 121919,
     formula: 'C17H15BrN4O2',
@@ -524,6 +530,40 @@ const moleculeMeta = {
     condensed: '[Fe4S4(SC6H5)4]2-',
     smiles: '[S-]c1ccccc1.[S-]c1ccccc1.[S-]c1ccccc1.[S-]c1ccccc1.[Fe].[Fe].[Fe].[Fe].[S].[S].[S].[S]',
     structureImg: './structures/Тетракис-тиофенолят-тетра-мю3-сульфидо-тетраферрат(2-).png',
+  },
+  'Бензилдиметил(3-(миристоиламино)пропил)аммоний': {
+    cid: 72950,
+    formula: 'C26H47N2O',
+    condensed: 'C6H5CH2N(CH3)2(CH2)3NHC(O)(CH2)12CH3',
+    smiles: 'CCCCCCCCCCCCCC(=O)NCCC[N+](C)(C)Cc1ccccc1',
+  },
+  'Никотинамидадениндинуклеотидфосфатгидрид': {
+    cid: 5884,
+    formula: 'C21H30N7O17P3',
+    condensed: 'NADPH',
+    smiles: 'C1C=CN(C=C1C(=O)N)[C@H]2[C@@H]([C@@H]([C@H](O2)COP(=O)(O)OP(=O)(O)OC[C@@H]3[C@H]([C@H]([C@@H](O3)N4C=NC5=C(N=CN=C54)N)OP(=O)(O)O)O)O)O',
+  },
+  'Азотная кислота': {
+    cid: 944,
+    formula: 'HNO3',
+    condensed: 'HNO3',
+    smiles: 'O[N+](=O)[O-]',
+  },
+  'Нитроний-катион': {
+    cid: 5765953,
+    formula: 'NO2',
+    condensed: 'NO2+',
+    smiles: 'O=[N+]=O',
+  },
+  'Гидросульфат-ион': {
+    cid: 61778,
+    formula: 'HO4S',
+    condensed: 'HSO4-',
+    smiles: 'OS(=O)(=O)[O-]',
+  },
+  '4-Фторфенил(2-(1-(тетрагидропиран-4-ил)циклопентил)-7,8-дигидро-5H-пиридо[4,3-d]пиримидин-6-ил)метанон': {
+    formula: 'C24H26FN3O2',
+    smiles: 'O=C(c1ccc(F)cc1)C2=CC3=C(N=C(N=C3)C4(CCCC4)C5CCOCC5)NC2',
   },
 };
 
@@ -652,6 +692,11 @@ const reactionMeta = {
     reactants: ['Билиановая кислота', 'Билиановая кислота', 'Карбонат натрия', 'Карбонат натрия', 'Карбонат натрия'],
     products: ['Билианат натрия', 'Билианат натрия', 'Вода', 'Вода', 'Вода', 'Углекислый газ', 'Углекислый газ', 'Углекислый газ'],
     equation: '2C₂₄H₃₄O₈ + 3Na₂CO₃ → 2C₂₄H₃₁Na₃O₈ + 3H₂O + 3CO₂',
+  },
+  'Образование нитрующей смеси': {
+    reactants: ['Серная кислота', 'Азотная кислота'],
+    products: ['Нитроний-катион', 'Гидросульфат-ион', 'Вода'],
+    equation: 'H₂SO₄ + HNO₃ → NO₂⁺ + HSO₄⁻ + H₂O',
   },
 };
 
