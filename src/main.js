@@ -565,6 +565,19 @@ const moleculeMeta = {
     formula: 'C24H26FN3O2',
     smiles: 'O=C(c1ccc(F)cc1)C2=CC3=C(N=C(N=C3)C4(CCCC4)C5CCOCC5)NC2',
   },
+  'PG5 (пентаэтиленгликоль)': {
+    formula: 'C10H22O6',
+    condensed: 'HO(CH2CH2O)4CH2CH2OH',
+    smiles: 'OCCOCCOCCOCCOCCO',
+  },
+  'Фуллерен C50': {
+    formula: 'C50',
+    condensed: 'C50',
+  },
+  'Фуллерен C20': {
+    formula: 'C20',
+    condensed: 'C20',
+  },
 };
 
 // Protein metadata: name → { pdbId, description, organism }
